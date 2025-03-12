@@ -1,26 +1,245 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Typography */
+  --font-display: "Satoshi", "sans-serif";
+
+  /* Breakpoints */
+  --breakpoint-3xl: 120rem;
+
+  /* Primary Colors */
+  --color-primary-50: #f4f9f8;
+  --color-primary-100: #dbece9;
+  --color-primary-200: #b6d9d1;
+  --color-primary-300: #8abeb5;
+  --color-primary-400: #70a9a1;
+  --color-primary-500: #47857d;
+  --color-primary-600: #376a64;
+  --color-primary-700: #2f5652;
+  --color-primary-800: #294644;
+  --color-primary-900: #253c3a;
+  --color-primary-950: #112221;
+
+  /* Secondary Colors */
+  --color-secondary-50: #fef6e4;
+  --color-secondary-100: #ffebcc;
+  --color-secondary-200: #ffe4b5;
+  --color-secondary-300: #ffd499;
+  --color-secondary-400: #ffc07d;
+  --color-secondary-500: #ffa500;
+  --color-secondary-600: #ff9900;
+  --color-secondary-700: #ff8000;
+  --color-secondary-800: #ff6900;
+  --color-secondary-900: #ff4d00;
+  --color-secondary-950: #ff0000;
+
+  /* Tertiary Colors */
+  --color-tertiary-50: #e5e5e5;
+  --color-tertiary-100: #d9d9d9;
+  --color-tertiary-200: #c5c5c5;
+  --color-tertiary-300: #b3b3b3;
+  --color-tertiary-400: #a3a3a3;
+  --color-tertiary-500: #808080;
+  --color-tertiary-600: #6a6a6a;
+  --color-tertiary-700: #4d4d4d;
+  --color-tertiary-800: #333333;
+  --color-tertiary-900: #1a1a1a;
+  --color-tertiary-950: #000000;
+
+  /* Warning Colors */
+  --color-warning-50: #fff0f0;
+  --color-warning-100: #ffe0e0;
+  --color-warning-200: #ffc0c0;
+  --color-warning-300: #ffa6a6;
+  --color-warning-400: #ff8c8c;
+  --color-warning-500: #ff6363;
+  --color-warning-600: #ff5151;
+  --color-warning-700: #ff3d3d;
+  --color-warning-800: #ff2121;
+  --color-warning-900: #ff0000;
+  --color-warning-950: #e60000;
+
+  /* Success Colors */
+  --color-success-50: #f5fff5;
+  --color-success-100: #c4ffc4;
+  --color-success-200: #8ff08f;
+  --color-success-300: #5bf15b;
+  --color-success-400: #2fff2f;
+  --color-success-500: #00ff00;
+  --color-success-600: #00e600;
+  --color-success-700: #00c600;
+  --color-success-800: #009e00;
+  --color-success-900: #008000;
+  --color-success-950: #006600;
+
+  /* Info Colors */
+  --color-info-50: #f2f7ff;
+  --color-info-100: #e0e8ff;
+  --color-info-200: #c4d3ff;
+  --color-info-300: #a0bff8;
+  --color-info-400: #7ea5ff;
+  --color-info-500: #5895ff;
+  --color-info-600: #3b7bff;
+  --color-info-700: #2d59ff;
+  --color-info-800: #1c4bff;
+  --color-info-900: #0a45ff;
+  --color-info-950: #003bff;
+
+  /* Easing */
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 }
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.147 0.004 49.25);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.147 0.004 49.25);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.147 0.004 49.25);
+  --primary: oklch(0.216 0.006 56.043);
+  --primary-foreground: oklch(0.985 0.001 106.423);
+  --secondary: oklch(0.97 0.001 106.424);
+  --secondary-foreground: oklch(0.216 0.006 56.043);
+  --muted: oklch(0.97 0.001 106.424);
+  --muted-foreground: oklch(0.553 0.013 58.071);
+  --accent: oklch(0.97 0.001 106.424);
+  --accent-foreground: oklch(0.216 0.006 56.043);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.923 0.003 48.717);
+  --input: oklch(0.923 0.003 48.717);
+  --ring: oklch(0.709 0.01 56.259);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0.001 106.423);
+  --sidebar-foreground: oklch(0.147 0.004 49.25);
+  --sidebar-primary: oklch(0.216 0.006 56.043);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.97 0.001 106.424);
+  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+  --sidebar-border: oklch(0.923 0.003 48.717);
+  --sidebar-ring: oklch(0.709 0.01 56.259);
+}
+
+.dark {
+  --background: oklch(0.147 0.004 49.25);
+  --foreground: oklch(0.985 0.001 106.423);
+  --card: oklch(0.147 0.004 49.25);
+  --card-foreground: oklch(0.985 0.001 106.423);
+  --popover: oklch(0.147 0.004 49.25);
+  --popover-foreground: oklch(0.985 0.001 106.423);
+  --primary: oklch(0.985 0.001 106.423);
+  --primary-foreground: oklch(0.216 0.006 56.043);
+  --secondary: oklch(0.268 0.007 34.298);
+  --secondary-foreground: oklch(0.985 0.001 106.423);
+  --muted: oklch(0.268 0.007 34.298);
+  --muted-foreground: oklch(0.709 0.01 56.259);
+  --accent: oklch(0.268 0.007 34.298);
+  --accent-foreground: oklch(0.985 0.001 106.423);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.268 0.007 34.298);
+  --input: oklch(0.268 0.007 34.298);
+  --ring: oklch(0.553 0.013 58.071);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.216 0.006 56.043);
+  --sidebar-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.268 0.007 34.298);
+  --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-border: oklch(0.268 0.007 34.298);
+  --sidebar-ring: oklch(0.553 0.013 58.071);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+ 
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.button {
+  @apply rounded-md px-4 py-2 font-medium text-lg transition focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.button-primary {
+  @apply bg-primary-600 hover:bg-primary-700 text-white 
+}
+.button-secondary {
+  @apply bg-secondary-500 hover:bg-secondary-600 text-white 
+}
+.button-tertiary {
+  @apply bg-tertiary-500 hover:bg-tertiary-600 text-white 
+}
+
+.button-warning {
+  @apply bg-warning-500 hover:bg-warning-600 text-white 
+}
+
+.button-success {
+  @apply bg-success-500 hover:bg-success-600 text-white 
+}
+
+.button-info {
+  @apply bg-info-500 hover:bg-info-600 text-white 
 }
